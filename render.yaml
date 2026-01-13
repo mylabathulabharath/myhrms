@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: horilla-hrm
+    env: python
+    buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput
+    startCommand: python3 start_server.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.11
+      - key: DEBUG
+        value: False
+      - key: SECRET_KEY
+        value: django-insecure-render-prod-8x9k2m4n6p8q0r2s4t6u8v0w2x4y6z8a0b2c4d6e8f0g2h4
+      - key: ALLOWED_HOSTS
+        value: myhrms-ekve.onrender.com
+      - key: CSRF_TRUSTED_ORIGINS
+        value: https://myhrms-ekve.onrender.com
+      - key: TIME_ZONE
+        value: Asia/Kolkata
+      - key: DB_INIT_PASSWORD
+        value: d3f6a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2
+      - key: DATABASE_URL
+        value: postgresql://horilla:wqOxVaw0vWNA6QR2xM5Hz7aYWKC1FhlA@dpg-d5i8taer433s73c6qg0g-a/horilla_ug41
+      - key: DB_ENGINE
+        value: django.db.backends.postgresql
+
+databases:
+  - name:horilla_u
+    plan: free
+    databaseName: horilla_ug41
+    user: horilla
